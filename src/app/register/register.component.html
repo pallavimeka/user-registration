@@ -5,50 +5,62 @@
 
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                    <mat-error *ngIf="registerForm.controls['name'].hasError('required')">
+                        Name is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.controls['name'].hasError('pattern')">
+                        Enter valid name.
+                    </mat-error>
+                </mat-form-field>
+            </div>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Name</mat-label>
-                <input matInput type="text" formControlName="name"
-                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
-                <mat-error *ngIf="registerForm.controls['name'].hasError('required')">
-                    Name is required.
-                </mat-error>
-                <mat-error *ngIf="registerForm.controls['name'].hasError('pattern')">
-                    Enter valid name.
-                </mat-error>
-            </mat-form-field>
+            <div>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label>
-                <input matInput type="email" formControlName="email"
-                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
-                <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
-                    Email is required.
-                </mat-error>
-                <mat-error *ngIf="registerForm.controls['email'].hasError('email')">
-                    Enter valid email.
-                </mat-error>
-            </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                    <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+                        Email is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.controls['email'].hasError('email')">
+                        Enter valid email.
+                    </mat-error>
+                </mat-form-field>
 
-
-            <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput type="password" formControlName="password"
-                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
-                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
-                    Password is required.
-                </mat-error>
-            </mat-form-field>
+            </div>
 
 
-            <mat-form-field appearance="outline">
-                <mat-label>Biodata</mat-label>
-                <textarea matInput type="textarea" formControlName="biodata"
-                    [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" ></textarea>
-                <mat-error *ngIf="registerForm.controls['biodata'].hasError('required')">
-                    Biodata is required.
-                </mat-error>
-            </mat-form-field>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                    <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+                        Password is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Biodata</mat-label>
+                    <textarea matInput type="textarea" formControlName="biodata"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"></textarea>
+                    <mat-error *ngIf="registerForm.controls['biodata'].hasError('required')">
+                        Biodata is required.
+                    </mat-error>
+                    <mat-error *ngIf="registerForm.controls['biodata'].hasError('maxLength')">
+                        Biodata exceeded maximun length.
+                    </mat-error>
+                </mat-form-field>
+            </div>
 
 
             <div>

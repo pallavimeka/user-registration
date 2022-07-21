@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserProfile } from '../shared/models/profile-model';
 import { RegistrationService } from '../shared/services/registration.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RegistrationService } from '../shared/services/registration.service';
 })
 export class ProfileComponent implements OnInit {
 
-  userProfile:Observable<any>;
+  userProfile:Observable<UserProfile>;
 
   constructor(private registrationservice:RegistrationService) { }
 
@@ -18,8 +19,6 @@ export class ProfileComponent implements OnInit {
   }
 
 getUserProfile(){
-/*   this.registrationservice.getUserProfile().subscribe(res=>{
-    console.log(res); */
     this.userProfile=this.registrationservice.getUserProfile()
 }
 
