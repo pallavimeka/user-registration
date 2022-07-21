@@ -1,0 +1,11 @@
+<h2>User Profile</h2>
+
+<div *ngIf="userProfile | async as userProfile">
+
+    <mat-list>
+        <mat-list-item> Name : {{userProfile.name}} </mat-list-item>
+        <mat-list-item> Email : {{userProfile.email}} </mat-list-item>
+        <mat-list-item> Biodata : {{userProfile.bio}} </mat-list-item>
+    </mat-list>
+
+</div>
